@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import Home from './Home';
 import Navbar from './Navbar';
 import UserProfile from './UserProfile';
-import WorkoutForm from './WorkoutForm';
 import '../App.css';
 import '../Dashboard.css';
 
