@@ -9,6 +9,7 @@ import Arm from './components/Arm';
 import Shoulder from './components/Shoulder';
 import Upper from './components/Upper';
 import Lower from './components/Lower';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/homepage" element={<Homepage />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -25,6 +27,7 @@ function App() {
             <Route path="/shoulder" element={<Shoulder/>} />
             <Route path="/upper" element={<Upper />} />
             <Route path="/lower" element={<Lower />} />
+            
           </Routes>
         </div>
       </BrowserRouter>
