@@ -7,6 +7,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+  margin-top: 200px;
 }
 
 .exercise {
@@ -16,6 +17,53 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+.exercise1 {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px; /* Add margin to create spacing between exercise boxes */
+  position: relative;
+}
+
+.exercise1 h3 {
+  margin-top: 0;
+}
+
+.exercise1 p {
+  margin-bottom: 40;
+}
+
+.exercise1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.arm-workout::before {
+  background-image: url('../public/arm.jpg');
+}
+
+.shoulder-workout::before {
+  background-image: url('../public/shoulder.jpg');
+}
+
+.upper-body-workout::before {
+  background-image: url('../public/upper.jpg');
+}
+
+.lower-body-workout::before {
+  background-image: url('../public/lower.jpg');
 }
 
 .exercise:hover {

@@ -1,6 +1,5 @@
-// UserProfile.js
 import React, { useState } from 'react';
-import UserAnalytics from './UserAnalytics'; // Import UserAnalytics component
+import UserAnalytics from './UserAnalytics'; 
 
 const UserProfile = ({ onClose }) => {
   // Define state variables for name, height, weight
@@ -33,7 +32,8 @@ const UserProfile = ({ onClose }) => {
 
   // Handle logout
   const handleLogout = () => {
-    // Perform logout actions here
+    alert('Logout successful!');
+    window.location.href = '/login';
   };
 
   // Sample user analytics data

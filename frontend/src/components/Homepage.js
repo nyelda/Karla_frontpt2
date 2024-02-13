@@ -1,22 +1,28 @@
-// App.js
 import React, { useState } from 'react';
+import Home from './Home';
 import Navbar from './Navbar';
-import Exercise from './Exercise';
 import UserProfile from './UserProfile';
-import Webcam from 'react-webcam';
 import '../App.css';
+import '../Dashboard.css';
 
 const Homepage = () => {
   const [showUserProfile, setShowUserProfile] = useState(false);
-  const [showCamera, setShowCamera] = useState(false);
 
-  const handleExerciseClick = () => {
-    setShowCamera(true);
+  const ArmWorkout = () => {
+    window.location.href = '/arm';
   };
 
-  const handleCloseCamera = () => {
-    setShowCamera(false);
+  const ShoulderWorkout = () => {
+    window.location.href = '/shoulder';
   };
+
+  const UpperWorkout = () => {
+    window.location.href = '/upper';
+  };
+
+  const LowerWorkout = () => {
+    window.location.href = '/lower';
+  }
 
   const handleProfileClick = () => {
     setShowUserProfile(true);
@@ -26,32 +32,62 @@ const Homepage = () => {
     setShowUserProfile(false);
   };
 
-  return (
-    <div className="App">
-      <Navbar onProfileClick={handleProfileClick} />
-      <div className="exercise-list">
-        {[...Array(9)].map((_, index) => (
-          <Exercise
-            key={index}
-            name={`Exercise ${index + 1}`}
-            details="Short details"
-            onClick={handleExerciseClick}
-          />
-        ))}
-      </div>
-      {showCamera && (
-        <div className="camera-popup">
-          <button onClick={handleCloseCamera}>Go Back</button>
-          <Webcam />
+  const [activeTab, setActiveTab] = useState('exercises');
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const ExercisesTab = () => {
+    return (
+      <div>
+        <div className="exercise1 arm-workout" onClick={() => ArmWorkout('pushup')}>
+          <h3>Arm Workout</h3>
+          <p>Details: Short details about push-up exercise.</p>
         </div>
-      )}
+        <div className="exercise1 shoulder-workout" onClick={() => ShoulderWorkout('squat')}>
+          <h3>Shoulder Workout</h3>
+          <p>Details: Short details about squat exercise.</p>
+        </div>
+        <div className="exercise1 upper-body-workout" onClick={() => UpperWorkout('pullup')}>
+          <h3>Upper Body Workout</h3>
+          <p>Details: Short details about pull-up exercise.</p>
+        </div>
+        <div className="exercise1 lower-body-workout" onClick={() => LowerWorkout('pullup')}>
+          <h3>Lower Body Workout</h3>
+          <p>Details: Short details about pull-up exercise.</p>
+        </div>
+      </div>
+    );
+  };
+  
+
+  const AnalyticsTab = () => {
+    return (
+      <div>
+        <Home />
+        <Navbar onProfileClick={handleProfileClick} />
       {showUserProfile && (
-        <div className="modal-overlay">
           <div className="modal">
             <UserProfile onClose={handleCloseProfile} />
           </div>
-        </div>
       )}
+      </div>
+    );
+  };
+
+  return (
+    <div className="App">
+      <div className="dashboard-container">
+      <div className="navigation">
+        <div className={`nav-item ${activeTab === 'exercises' ? 'active' : ''}`} onClick={() => handleTabChange('exercises')}>Exercises</div>
+        <div className={`nav-item ${activeTab === 'analytics' ? 'active' : ''}`} onClick={() => handleTabChange('analytics')}>User Analytics</div>
+      </div>
+      <div className="tab-content">
+        {activeTab === 'exercises' && <ExercisesTab />}
+        {activeTab === 'analytics' && <AnalyticsTab />}
+      </div>
+    </div>
     </div>
   );
 };

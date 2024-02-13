@@ -1,0 +1,10 @@
+.user-profile-container {
+    text-align: center;
+  }
+  
+  .camera-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
