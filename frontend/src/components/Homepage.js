@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WorkoutForm from './WorkoutForm'
 import Home from './Home';
 import Navbar from './Navbar';
 import UserProfile from './UserProfile';
@@ -71,6 +72,7 @@ const Homepage = () => {
             <UserProfile onClose={handleCloseProfile} />
           </div>
       )}
+      <WorkoutForm />
       </div>
     );
   };

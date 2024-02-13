@@ -10,6 +10,7 @@ import Shoulder from './components/Shoulder';
 import Upper from './components/Upper';
 import Lower from './components/Lower';
 import Home from './components/Home';
+import User from './components/User';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/homepage" element={<Homepage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/user" element={<User />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/arm" element={<Arm />} />
