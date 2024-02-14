@@ -42,7 +42,7 @@ const Arm = () => {
         <div className="camera-popup">
           <button onClick={handleCloseCamera}>Go Back</button>
           <Webcam 
-          height={800} 
+          height={800} // Set the height of the camera
           width={1300}
           />
         </div>

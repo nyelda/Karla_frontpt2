@@ -3,7 +3,6 @@
 }
 
 .exercise-list {
-  background-color: gray;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -19,6 +18,7 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 
 .exercise1 {
   padding: 20px;
