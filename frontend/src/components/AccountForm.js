@@ -40,7 +40,7 @@ const AccountForm = () => {
 
     return (
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add Username</h3>
+            <h3>User Account</h3>
 
             <label>Username:</label>
             <input
