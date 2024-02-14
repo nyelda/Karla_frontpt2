@@ -6,7 +6,7 @@ const UserProfile = ({ onClose }) => {
   // Handle logout
   const handleLogout = () => {
     alert('Logout successful!');
-    window.location.href = '/login';
+    window.location.href = '/';
   };
 
   // Sample user analytics data

@@ -7,7 +7,7 @@ const AccountForm = () => {
     const [emptyFields, setEmptyFields] = useState([])
 
     const handleOn = () => {
-        window.location.href = '/login';
+        window.location.href = '/';
       };
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -57,8 +57,8 @@ const AccountForm = () => {
             />
             <button>Add User</button>
             <div style={styles.loginLink}>
-        Already have an account? <button style={styles.link} onClick={() => handleOn()}>Login here</button>.
-      </div>
+            Already have an account? <button style={styles.link} onClick={() => handleOn()}>Login here</button>
+             </div>
             {error && <div className="error">{error}</div>}
         </form>
     )
@@ -100,9 +100,18 @@ const styles = {
       borderRadius: '5px',
       cursor: 'pointer',
     },
+    button1: {
+      padding: '10px',
+      backgroundColor: '#28a745',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+      marginRight: '100px',
+    },
     loginLink: {
       marginTop: '10px',
-      textAlign: 'center',
+      textAlign: 'left',
     },
     link: {
       color: '#007bff',

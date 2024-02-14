@@ -4,7 +4,7 @@ import ExerAnalytics from './ExerAnalytics';
 import Webcam from 'react-webcam';
 import '../App.css';
 
-const Arm = ({}) => {
+const Arm = () => {
   const [showCamera, setShowCamera] = useState(false);
 
   const handleExerciseClick = () => {

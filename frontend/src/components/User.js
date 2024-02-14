@@ -1,6 +1,5 @@
 import { useEffect, useState} from 'react'
 import '../index.css';
-import { Link } from 'react-router-dom';
 
 // components
 import AccountDetails from './AccountDetails'
