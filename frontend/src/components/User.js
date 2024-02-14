@@ -35,17 +35,19 @@ const User = () => {
 
     return (
         <div className="home">
-            <div className="user-profile-container">
             {showCamera && (
-                <Webcam />
-            )}
-                <div className="button-container">
-                    <button onClick={cameraClick} style={styles.button}>Open Camera</button>
-                    <button onClick={handleCloseCamera} style={styles.button}>Close Camera</button>
-                </div>
+            <div className="camera-popup">
+              <button onClick={handleCloseCamera}>Go Back</button>
+              <Webcam 
+              height={800} 
+              width={1300}
+              />
             </div>
+            )}
             <AccountForm />
+            <button onClick={cameraClick} style={styles.button}>Open Camera</button>
         </div>
+        
     )
 }
 
@@ -60,6 +62,7 @@ const styles = {
       borderRadius: '5px',
       cursor: 'pointer',
       margin: '20px',
+      textAlign: 'center',
     },
     
   };

@@ -41,7 +41,10 @@ const Arm = () => {
       {showCamera && (
         <div className="camera-popup">
           <button onClick={handleCloseCamera}>Go Back</button>
-          <Webcam />
+          <Webcam 
+          height={800} 
+          width={1300}
+          />
         </div>
       )}
       <div className="user-analytics-container">
