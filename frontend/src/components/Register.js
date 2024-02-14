@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Webcam from 'react-webcam';
 
-const Register = ({ onClose }) => {
+const Register = () => {
   const [name, setName] = useState('');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
@@ -64,9 +64,7 @@ const Register = ({ onClose }) => {
         </div>
       )}
       {showCamera && (
-        <div className="camera-container">
           <Webcam />
-        </div>
       )}
       <div className="button-container">
         <button onClick={handleLogin} style={styles.button}>READY!</button>
