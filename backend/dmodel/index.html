@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise Classification</title>
+</head>
+<body>
+    <h1>Exercise Classification</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="captureButton">Capture</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <script>
+        // Get the video element
+        const video = document.getElementById('video');
+
+        // Get the canvas element
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+
+        // Get the capture button
+        const captureButton = document.getElementById('captureButton');
+
+        // Constraints for the webcam stream
+        const constraints = {
+            video: true
+        };
+
+        // Function to start the webcam
+        async function startWebcam() {
+            try {
+                // Get the webcam stream
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                video.srcObject = stream;
+            } catch (err) {
+                console.error('Error accessing webcam:', err);
+            }
+        }
+
+        // Function to capture an image from the webcam
+        function captureImage() {
+            // Draw the current frame from the webcam onto the canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Get the base64 encoded image data from the canvas
+            const imageData = canvas.toDataURL('image/jpeg');
+
+            // Send the captured image data to the Flask backend for classification
+            fetch('/classify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: imageData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Prediction:', data.prediction);
+                // Display the prediction in the console or update the UI as needed
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Start the webcam when the page loads
+        startWebcam();
+
+        // Add event listener to the capture button
+        captureButton.addEventListener('click', captureImage);
+    </script>
+</body>
+</html>

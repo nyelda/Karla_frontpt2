@@ -11,6 +11,7 @@ import Upper from './components/Upper';
 import Lower from './components/Lower';
 import Home from './components/Home';
 import User from './components/User';
+import Classifier from './components/Classifier';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path="/shoulder" element={<Shoulder/>} />
             <Route path="/upper" element={<Upper />} />
             <Route path="/lower" element={<Lower />} />
-            
+            <Route path="/classifier" element={<Classifier />} />
           </Routes>
         </div>
       </BrowserRouter>
