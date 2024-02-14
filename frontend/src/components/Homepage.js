@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import WorkoutForm from './WorkoutForm'
+import WorkoutForm from './WorkoutForm';
 import Navbar from './Navbar';
 import UserProfile from './UserProfile';
 import '../App.css';
@@ -7,6 +7,7 @@ import '../Dashboard.css';
 
 const Homepage = () => {
   const [showUserProfile, setShowUserProfile] = useState(false);
+  const [activeTab, setActiveTab] = useState('exercises');
 
   const ArmWorkout = () => {
     window.location.href = '/arm';
@@ -22,7 +23,7 @@ const Homepage = () => {
 
   const LowerWorkout = () => {
     window.location.href = '/lower';
-  }
+  };
 
   const handleProfileClick = () => {
     setShowUserProfile(true);
@@ -31,8 +32,6 @@ const Homepage = () => {
   const handleCloseProfile = () => {
     setShowUserProfile(false);
   };
-
-  const [activeTab, setActiveTab] = useState('exercises');
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -60,34 +59,33 @@ const Homepage = () => {
       </div>
     );
   };
-  
 
   const AnalyticsTab = () => {
     return (
       <div>
         <Navbar onProfileClick={handleProfileClick} />
-      {showUserProfile && (
+        {showUserProfile && (
           <div className="modal">
             <UserProfile onClose={handleCloseProfile} />
           </div>
-      )}
-      <WorkoutForm />
+        )}
+        <WorkoutForm />
       </div>
     );
   };
 
   return (
     <div className="App">
-      <div className="dashboard-container">
-      <div className="navigation">
-        <div className={`nav-item ${activeTab === 'exercises' ? 'active' : ''}`} onClick={() => handleTabChange('exercises')}>Exercises</div>
-        <div className={`nav-item ${activeTab === 'analytics' ? 'active' : ''}`} onClick={() => handleTabChange('analytics')}>User Analytics</div>
-      </div>
-      <div className="tab-content">
-        {activeTab === 'exercises' && <ExercisesTab />}
-        {activeTab === 'analytics' && <AnalyticsTab />}
-      </div>
-    </div>
+        <div className="dashboard-container">
+          <div className="navigation">
+            <div className={`nav-item ${activeTab === 'exercises' ? 'active' : ''}`} onClick={() => handleTabChange('exercises')}>Exercises</div>
+            <div className={`nav-item ${activeTab === 'analytics' ? 'active' : ''}`} onClick={() => handleTabChange('analytics')}>User Analytics</div>
+          </div>
+          <div className="tab-content">
+            {activeTab === 'exercises' && <ExercisesTab />}
+            {activeTab === 'analytics' && <AnalyticsTab />}
+          </div>
+        </div>
     </div>
   );
 };

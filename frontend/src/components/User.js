@@ -63,6 +63,6 @@ const styles = {
       cursor: 'pointer',
       margin: '20px',
       textAlign: 'center',
-    },
+    }
     
   };
