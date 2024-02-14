@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import WorkoutForm from './WorkoutForm'
-import Home from './Home';
 import Navbar from './Navbar';
 import UserProfile from './UserProfile';
 import '../App.css';
@@ -42,19 +41,19 @@ const Homepage = () => {
   const ExercisesTab = () => {
     return (
       <div>
-        <div className="exercise1 arm-workout" onClick={() => ArmWorkout('pushup')}>
+        <div className="exercise1 arm-workout" onClick={() => ArmWorkout()}>
           <h3>Arm Workout</h3>
           <p>Details: Short details about push-up exercise.</p>
         </div>
-        <div className="exercise1 shoulder-workout" onClick={() => ShoulderWorkout('squat')}>
+        <div className="exercise1 shoulder-workout" onClick={() => ShoulderWorkout()}>
           <h3>Shoulder Workout</h3>
           <p>Details: Short details about squat exercise.</p>
         </div>
-        <div className="exercise1 upper-body-workout" onClick={() => UpperWorkout('pullup')}>
+        <div className="exercise1 upper-body-workout" onClick={() => UpperWorkout()}>
           <h3>Upper Body Workout</h3>
           <p>Details: Short details about pull-up exercise.</p>
         </div>
-        <div className="exercise1 lower-body-workout" onClick={() => LowerWorkout('pullup')}>
+        <div className="exercise1 lower-body-workout" onClick={() => LowerWorkout()}>
           <h3>Lower Body Workout</h3>
           <p>Details: Short details about pull-up exercise.</p>
         </div>

@@ -6,7 +6,7 @@ const UserAnalytics = ({ data }) => {
       <h3>User Analytics</h3>
       <ul>
         <li>Date: {data.date}</li>
-        <li>Executed Exercise/s: {data.Exercises}</li>
+        <li>Reps: {data.reps}</li>
       </ul>
     </div>
   );

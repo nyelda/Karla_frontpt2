@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Exercise from './Exercise';
+import ExerAnalytics from './ExerAnalytics'; 
 import Webcam from 'react-webcam';
 import '../App.css';
 
@@ -16,6 +17,13 @@ const handleCloseCamera = () => {
 
 const handleBackToHomepage = () => {
   window.location.href = '/homepage'; 
+};
+
+// Sample user analytics data
+const userAnalyticsData = {
+  totalVisits: 100,
+  subscriptionStatus: 'Active',
+// Add more analytics data as needed
 };
 
     return (
@@ -36,9 +44,13 @@ const handleBackToHomepage = () => {
           <Webcam />
         </div>
       )}
-        <div className="button-container">
+      <div className="user-analytics-container">
+        {/* Render UserAnalytics component */}
+        <ExerAnalytics data={userAnalyticsData} />
+      </div>
+      <div className="button-container">
             <button onClick={handleBackToHomepage}>Back to Homepage</button>
-        </div>
+      </div>
       </div>
     );
   };
