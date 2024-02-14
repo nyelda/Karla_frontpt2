@@ -3,6 +3,7 @@ import { useState } from "react"
 const AccountForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
@@ -12,7 +13,7 @@ const AccountForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const accounts = {username, password}
+        const accounts = {username, password, weight}
 
         const response = await fetch('/api/signup', {
             method: 'POST',
@@ -30,6 +31,7 @@ const AccountForm = () => {
         if (response.ok) {
             setUsername('')
             setPassword('')
+            setWeight('')
             setError(null)
             setEmptyFields([])
             console.log('new user added', json)
@@ -55,6 +57,15 @@ const AccountForm = () => {
                 value={password}
                 className={emptyFields.includes('password') ? 'error' : ''}
             />
+
+            <label>Weight (in kg):</label>
+            <input
+                type="number"
+                onChange={(e) => setWeight(e.target.value)}
+                value={weight}
+                className={emptyFields.includes('weight') ? 'error' : ''}
+            />
+
             <button>Add User</button>
             <div style={styles.loginLink}>
             Already have an account? <button style={styles.link} onClick={() => handleOn()}>Login here</button>

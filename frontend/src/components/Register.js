@@ -45,17 +45,17 @@ const Register = () => {
 
   return (
     <div className="user-profile-container">
-      <h2>User Profile</h2>
+      <h2>Registration</h2>
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Username:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
       <div>
-        <label htmlFor="height">Height:</label>
+        <label htmlFor="height">Height (in cm):</label>
         <input type="text" id="height" value={height} onChange={handleHeightChange} />
       </div>
       <div>
-        <label htmlFor="weight">Weight:</label>
+        <label htmlFor="weight">Weight (in kg):</label>
         <input type="text" id="weight" value={weight} onChange={handleWeightChange} />
       </div>
       {isEditing && (

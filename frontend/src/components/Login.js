@@ -10,7 +10,7 @@ const Login = () => {
 
     if (username.trim() !== '' && password.trim() !== '') {
       alert('Login successful!');
-      window.location.href = '/register';
+      window.location.href = '/homepage';
     } else {
       alert('Invalid username or password. Please try again.');
     }

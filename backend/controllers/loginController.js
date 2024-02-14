@@ -26,9 +26,9 @@ const getAcc = async (req, res) => {
 }
 
 
-// create new workout
+// create new account
 const createAcc = async (req, res) =>{
-    const {username, password} = req.body
+    const {username, password, weight} = req.body
 
     let emptyFields = []
 
@@ -38,13 +38,16 @@ const createAcc = async (req, res) =>{
     if (!password) {
         emptyFields.push('password')
     }
+    if (!weight) {
+        emptyFields.push('weight')
+    }
     if (emptyFields.length > 0) {
         return res.status(400).json({error: 'Please fill in all the fields', emptyFields})
     }
     
     // add doc to db
     try {
-        const account = await Login.create({username, password})
+        const account = await Login.create({username, password, weight})
         res.status(200).json(account)
     } catch (error) {
         res.status(400).json({error: error.message})

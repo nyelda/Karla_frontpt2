@@ -10,6 +10,10 @@ const accountSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    weight: {
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 
